@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PS Console - منصة الألعاب العربية</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/games.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="ps-theme">
+    <!-- شاشة البدء -->
+    <div id="boot-screen" class="boot-screen">
+        <div class="boot-animation">
+            <div class="ps-logo">
+                <div class="ps-circle">
+                    <div class="ps-shapes">
+                        <div class="ps-shape ps-shape-1"></div>
+                        <div class="ps-shape ps-shape-2"></div>
+                        <div class="ps-shape ps-shape-3"></div>
+                        <div class="ps-shape ps-shape-4"></div>
+                    </div>
+                </div>
+                <h1 class="console-name">PS CONSOLE</h1>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <p class="boot-message">جاري تحميل النظام...</p>
+        </div>
+    </div>
+
+    <!-- الواجهة الرئيسية -->
+    <div id="main-ui" class="main-ui hidden">
+        <!-- شريط النظام العلوي -->
+        <nav class="system-bar">
+            <div class="system-info">
+                <span class="time" id="current-time">--:--</span>
+                <span class="wifi-status"><i class="fas fa-wifi"></i></span>
+                <span class="battery-status"><i class="fas fa-battery-full"></i> 100%</span>
+            </div>
+            <div class="user-profile">
+                <div class="user-avatar">
+                    <img src="assets/images/default-avatar.png" alt="المستخدم" id="user-avatar">
+                </div>
+                <span class="username" id="username">ضيف</span>
+            </div>
+        </nav>
+
+        <!-- الصفحة الرئيسية -->
+        <main class="home-screen">
+            <!-- شريط التطبيقات السريعة -->
+            <div class="quick-access">
+                <div class="quick-app" data-app="store">
+                    <div class="app-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <span class="app-name">المتجر</span>
+                </div>
+                <div class="quick-app" data-app="library">
+                    <div class="app-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <span class="app-name">مكتبتي</span>
+                </div>
+                <div class="quick-app" data-app="friends">
+                    <div class="app-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <span class="app-name">الأصدقاء</span>
+                </div>
+                <div class="quick-app" data-app="settings">
+                    <div class="app-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <span class="app-name">الإعدادات</span>
+                </div>
+            </div>
+
+            <!-- الألعاب الأخيرة -->
+            <section class="recent-games">
+                <h2 class="section-title">
+                    <i class="fas fa-history"></i>
+                    الألعاب الأخيرة
+                </h2>
+                <div class="games-carousel" id="recent-games">
+                    <!-- سيتم تعبئتها بالجافاسكريبت -->
+                </div>
+            </section>
+
+            <!-- الألعاب الموصى بها -->
+            <section class="recommended-games">
+                <h2 class="section-title">
+                    <i class="fas fa-fire"></i>
+                    موصى بها لك
+                </h2>
+                <div class="games-grid" id="recommended-games">
+                    <!-- سيتم تعبئتها بالجافاسكريبت -->
+                </div>
+            </section>
+        </main>
+
+        <!-- شريط التطبيقات السفلي -->
+        <footer class="app-dock">
+            <div class="dock-container">
+                <div class="dock-app active" data-app="home">
+                    <div class="dock-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <span class="dock-label">الرئيسية</span>
+                </div>
+                <div class="dock-app" data-app="store">
+                    <div class="dock-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <span class="dock-label">المتجر</span>
+                </div>
+                <div class="dock-app" data-app="library">
+                    <div class="dock-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <span class="dock-label">مكتبتي</span>
+                </div>
+                <div class="dock-app" data-app="profile">
+                    <div class="dock-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <span class="dock-label">الملف</span>
+                </div>
+                <div class="dock-app" data-app="search">
+                    <div class="dock-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <span class="dock-label">بحث</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- شاشة المتجر -->
+    <div id="store-screen" class="app-screen hidden">
+        <div class="store-header">
+            <button class="back-button" data-back="home">
+                <i class="fas fa-arrow-right"></i>
+            </button>
+            <h1 class="store-title">
+                <i class="fas fa-store"></i>
+                متجر PlayStation
+            </h1>
+            <div class="store-search">
+                <input type="text" placeholder="ابحث عن ألعاب..." id="store-search">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+        
+        <div class="store-content">
+            <!-- أقسام المتجر -->
+            <div class="store-sections">
+                <div class="store-section active" data-section="featured">
+                    <i class="fas fa-star"></i>
+                    <span>مميز</span>
+                </div>
+                <div class="store-section" data-section="new">
+                    <i class="fas fa-bolt"></i>
+                    <span>جديد</span>
+                </div>
+                <div class="store-section" data-section="top">
+                    <i class="fas fa-chart-line"></i>
+                    <span>الأكثر مبيعاً</span>
+                </div>
+                <div class="store-section" data-section="free">
+                    <i class="fas fa-gift"></i>
+                    <span>مجاني</span>
+                </div>
+                <div class="store-section" data-section="categories">
+                    <i class="fas fa-th-large"></i>
+                    <span>فئات</span>
+                </div>
+            </div>
+
+            <!-- محتوى المتجر -->
+            <div class="store-main">
+                <div class="featured-game" id="featured-game">
+                    <!-- سيتم تعبئتها -->
+                </div>
+
+                <div class="games-catalog" id="store-games">
+                    <!-- سيتم تعبئتها -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- شاشة المكتبة -->
+    <div id="library-screen" class="app-screen hidden">
+        <div class="library-header">
+            <button class="back-button" data-back="home">
+                <i class="fas fa-arrow-right"></i>
+            </button>
+            <h1 class="library-title">
+                <i class="fas fa-gamepad"></i>
+                مكتبتي
+            </h1>
+            <div class="library-stats">
+                <span id="total-games">0 ألعاب</span>
+                <span id="total-size">0 GB</span>
+            </div>
+        </div>
+
+        <div class="library-content">
+            <!-- فلاتر المكتبة -->
+            <div class="library-filters">
+                <button class="filter-btn active" data-filter="all">الكل</button>
+                <button class="filter-btn" data-filter="installed">مثبت</button>
+                <button class="filter-btn" data-filter="recent">الأخيرة</button>
+                <button class="filter-btn" data-filter="favorites">المفضلة</button>
+                <button class="filter-btn" data-filter="webgl">WebGL</button>
+            </div>
+
+            <!-- ألعاب المكتبة -->
+            <div class="library-games" id="library-games">
+                <!-- سيتم تعبئتها -->
+            </div>
+        </div>
+    </div>
+
+    <!-- شاشة الملف الشخصي -->
+    <div id="profile-screen" class="app-screen hidden">
+        <div class="profile-header">
+            <button class="back-button" data-back="home">
+                <i class="fas fa-arrow-right"></i>
+            </button>
+            <h1 class="profile-title">
+                <i class="fas fa-user"></i>
+                الملف الشخصي
+            </h1>
+        </div>
+
+        <div class="profile-content">
+            <!-- معلومات المستخدم -->
+            <div class="profile-card">
+                <div class="profile-avatar-large">
+                    <img src="assets/images/default-avatar.png" alt="الصورة" id="profile-avatar">
+                    <button class="change-avatar">
+                        <i class="fas fa-camera"></i>
+                    </button>
+                </div>
+                <div class="profile-info">
+                    <h2 id="profile-name">ضيف</h2>
+                    <p class="profile-id" id="profile-id">ID: GUEST_001</p>
+                    <div class="profile-level">
+                        <div class="level-progress">
+                            <div class="level-bar" style="width: 65%"></div>
+                        </div>
+                        <span class="level-text">المستوى 5</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الإحصائيات -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>وقت اللعب</h3>
+                    <p id="play-time">0 ساعة</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-trophy"></i>
+                    <h3>الإنجازات</h3>
+                    <p id="achievements">0</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-gamepad"></i>
+                    <h3>الألعاب</h3>
+                    <p id="owned-games">0</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-star"></i>
+                    <h3>التقييم</h3>
+                    <p id="player-rating">---</p>
+                </div>
+            </div>
+
+            <!-- الإعدادات -->
+            <div class="settings-section">
+                <h3><i class="fas fa-cog"></i> الإعدادات</h3>
+                <div class="settings-list">
+                    <div class="setting-item">
+                        <i class="fas fa-palette"></i>
+                        <span>المظهر</span>
+                        <select id="theme-select">
+                            <option value="dark">داكن</option>
+                            <option value="light">فاتح</option>
+                            <option value="blue">أزرق</option>
+                            <option value="purple">بنفسجي</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <i class="fas fa-volume-up"></i>
+                        <span>الصوت</span>
+                        <input type="range" id="volume-slider" min="0" max="100" value="80">
+                    </div>
+                    <div class="setting-item">
+                        <i class="fas fa-language"></i>
+                        <span>اللغة</span>
+                        <select id="language-select">
+                            <option value="ar">العربية</option>
+                            <option value="en">English</option>
+                        </select>
+                    </div>
+                    <button class="logout-btn" id="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        تسجيل الخروج
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- مشغل الألعاب -->
+    <div id="game-player" class="game-player hidden">
+        <div class="player-header">
+            <div class="game-info">
+                <img id="player-game-icon" src="" alt="أيقونة اللعبة">
+                <div>
+                    <h3 id="player-game-title">اسم اللعبة</h3>
+                    <p id="player-game-status">جاري التشغيل...</p>
+                </div>
+            </div>
+            <div class="player-controls">
+                <button class="player-btn" id="pause-game" title="إيقاف">
+                    <i class="fas fa-pause"></i>
+                </button>
+                <button class="player-btn" id="fullscreen-toggle" title="ملء الشاشة">
+                    <i class="fas fa-expand"></i>
+                </button>
+                <button class="player-btn btn-close" id="close-game" title="إغلاق">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+        <div class="player-content">
+            <div id="game-container">
+                <!-- هنا يتم تحميل اللعبة -->
+            </div>
+        </div>
+        <div class="player-overlay">
+            <div class="overlay-controls">
+                <button class="overlay-btn" id="overlay-home">
+                    <i class="fas fa-home"></i>
+                    الرئيسية
+                </button>
+                <button class="overlay-btn" id="overlay-screenshot">
+                    <i class="fas fa-camera"></i>
+                    لقطة
+                </button>
+                <button class="overlay-btn" id="overlay-record">
+                    <i class="fas fa-video"></i>
+                    تسجيل
+                </button>
+                <button class="overlay-btn" id="overlay-settings">
+                    <i class="fas fa-cog"></i>
+                    إعدادات
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة تفاصيل اللعبة -->
+    <div id="game-details-modal" class="modal hidden">
+        <div class="modal-content ps-modal">
+            <div class="modal-header">
+                <h3 id="modal-game-title">اسم اللعبة</h3>
+                <button class="modal-close" id="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="game-details">
+                    <div class="game-preview">
+                        <img id="modal-game-image" src="" alt="صورة اللعبة">
+                        <div class="game-trailer">
+                            <button class="trailer-btn">
+                                <i class="fas fa-play"></i>
+                                مشاهدة العرض
+                            </button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <div class="game-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span id="modal-game-rating">4.5</span>
+                        </div>
+                        <p class="game-description" id="modal-game-desc">
+                            وصف اللعبة...
+                        </p>
+                        <div class="game-meta">
+                            <span><i class="fas fa-hdd"></i> <span id="modal-game-size">10 GB</span></span>
+                            <span><i class="fas fa-users"></i> <span id="modal-game-players">1-4</span></span>
+                            <span><i class="fas fa-tags"></i> <span id="modal-game-category">أكشن</span></span>
+                        </div>
+                        <div class="game-requirements">
+                            <h4><i class="fas fa-laptop"></i> متطلبات النظام:</h4>
+                            <ul id="modal-game-requirements">
+                                <li>WebGL 2.0</li>
+                                <li>2GB RAM</li>
+                            </ul>
+                        </div>
+                        <div class="game-actions">
+                            <button class="ps-btn ps-btn-primary" id="modal-play-game">
+                                <i class="fas fa-play"></i>
+                                تشغيل
+                            </button>
+                            <button class="ps-btn ps-btn-secondary" id="modal-add-library">
+                                <i class="fas fa-plus"></i>
+                                إضافة للمكتبة
+                            </button>
+                            <button class="ps-btn ps-btn-outline" id="modal-download-game">
+                                <i class="fas fa-download"></i>
+                                تحميل
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- القائمة الجانبية -->
+    <div id="side-menu" class="side-menu hidden">
+        <div class="menu-header">
+            <h3>القائمة السريعة</h3>
+            <button class="menu-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="menu-items">
+            <a href="#" class="menu-item" data-action="notifications">
+                <i class="fas fa-bell"></i>
+                <span>الإشعارات</span>
+                <span class="badge">3</span>
+            </a>
+            <a href="#" class="menu-item" data-action="friends">
+                <i class="fas fa-users"></i>
+                <span>الأصدقاء</span>
+                <span class="badge">12</span>
+            </a>
+            <a href="#" class="menu-item" data-action="messages">
+                <i class="fas fa-envelope"></i>
+                <span>الرسائل</span>
+            </a>
+            <a href="#" class="menu-item" data-action="parties">
+                <i class="fas fa-microphone"></i>
+                <span>الحفلات</span>
+            </a>
+            <a href="#" class="menu-item" data-action="trophies">
+                <i class="fas fa-trophy"></i>
+                <span>الإنجازات</span>
+            </a>
+            <a href="#" class="menu-item" data-action="help">
+                <i class="fas fa-question-circle"></i>
+                <span>المساعدة</span>
+            </a>
+        </div>
+        <div class="menu-footer">
+            <button class="ps-btn ps-btn-small" id="power-off">
+                <i class="fas fa-power-off"></i>
+                إيقاف التشغيل
+            </button>
+        </div>
+    </div>
+
+    <!-- تحميل المكتبات -->
+    <script src="scripts/games/game-data.js"></script>
+    <script src="scripts/console-ui.js"></script>
+    <script src="scripts/store.js"></script>
+    <script src="scripts/library.js"></script>
+    <script src="scripts/profile.js"></script>
+    <script src="scripts/games/game-engine.js"></script>
+    <script src="scripts/app.js"></script>
+</body>
+</html>
