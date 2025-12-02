@@ -1,0 +1,395 @@
+/* أنماط خاصة بالألعاب */
+
+/* لعبة الجري */
+.runner-game {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.runner-canvas {
+    width: 800px;
+    height: 400px;
+    border: 3px solid white;
+    border-radius: 10px;
+    background: #000;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.runner-ui {
+    margin-top: 20px;
+    text-align: center;
+    color: white;
+    font-family: 'Tajawal', sans-serif;
+}
+
+/* لعبة الفضاء */
+.space-game {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.space-canvas {
+    width: 800px;
+    height: 500px;
+    border: 2px solid #6c5ce7;
+    background: #000;
+}
+
+.space-hud {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* لعبة كرة القدم */
+.soccer-game {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#27ae60, #2ecc71);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.soccer-canvas {
+    width: 800px;
+    height: 500px;
+    border: 3px solid white;
+    background: #27ae60;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.soccer-scoreboard {
+    display: flex;
+    justify-content: space-between;
+    width: 800px;
+    margin-top: 20px;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* لعبة الألغاز */
+.puzzle-game {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#00cec9, #81ecec);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.puzzle-board {
+    display: grid;
+    grid-template-columns: repeat(4, 80px);
+    grid-template-rows: repeat(4, 80px);
+    gap: 5px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.puzzle-tile {
+    width: 80px;
+    height: 80px;
+    background: #00b894;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.puzzle-tile:hover {
+    background: #00a085;
+    transform: scale(1.05);
+}
+
+.puzzle-tile.empty {
+    background: #dfe6e9;
+    visibility: hidden;
+}
+
+.puzzle-controls {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* لعبة القتال */
+.fighting-game {
+    width: 100%;
+    height: 100%;
+    background: #2c3e50;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.fighting-canvas {
+    width: 900px;
+    height: 500px;
+    border: 3px solid #e74c3c;
+    background: #34495e;
+}
+
+.fighting-hud {
+    width: 900px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    color: white;
+}
+
+.health-bar {
+    width: 300px;
+    height: 20px;
+    background: #7f8c8d;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.health-fill {
+    height: 100%;
+    background: linear-gradient(to right, #e74c3c, #c0392b);
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+/* لعبة السباق */
+.racing-game {
+    width: 100%;
+    height: 100%;
+    background: #2d3436;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.racing-canvas {
+    width: 800px;
+    height: 500px;
+    border: 3px solid #fdcb6e;
+    background: #636e72;
+}
+
+.racing-info {
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    color: white;
+}
+
+.speedometer {
+    font-size: 2rem;
+    color: #fdcb6e;
+    font-weight: bold;
+}
+
+/* تأثيرات الألعاب */
+.game-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    z-index: 100;
+}
+
+.game-overlay h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #fd79a8;
+}
+
+.game-overlay p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.game-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+/* رسومات اللعبة */
+.player-character {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.enemy-character {
+    animation: shake 0.5s ease-in-out infinite;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-2px);
+    }
+    75% {
+        transform: translateX(2px);
+    }
+}
+
+.power-up {
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* تأثيرات الجسيمات */
+.particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #ffcc00;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.explosion {
+    animation: explode 0.5s ease-out forwards;
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(10);
+        opacity: 0;
+    }
+}
+
+/* شاشة التحميل داخل اللعبة */
+.game-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-dark);
+}
+
+.game-loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 5px solid var(--ps-gray-light);
+    border-top: 5px solid var(--ps-blue);
+    border-radius: 50%;
+    animation: game-loading-spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes game-loading-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.game-loading-text {
+    color: var(--ps-white);
+    font-size: 1.2rem;
+    animation: game-loading-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes game-loading-pulse {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* تلميحات التحكم */
+.controls-hint {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: white;
+    font-size: 0.9rem;
+    display: flex;
+    gap: 15px;
+}
+
+.control-key {
+    background: var(--ps-gray);
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid var(--ps-gray-light);
+}
+
+/* مؤشرات الأداء */
+.performance-indicator {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #00cc00;
+    font-family: monospace;
+    font-size: 0.8rem;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.fps-good { color: #00cc00; }
+.fps-medium { color: #ffcc00; }
+.fps-low { color: #ff3333; }
