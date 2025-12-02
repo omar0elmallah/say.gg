@@ -1,0 +1,434 @@
+/* التكيف مع الشاشات المختلفة */
+
+/* شاشات كبيرة جداً (4K+) */
+@media (min-width: 2560px) {
+    .container {
+        max-width: 2400px;
+        margin: 0 auto;
+    }
+    
+    .game-card {
+        min-height: 400px;
+    }
+    
+    .game-card-image {
+        height: 300px;
+    }
+    
+    .quick-app {
+        min-width: 180px;
+    }
+    
+    .quick-app .app-icon {
+        width: 120px;
+        height: 120px;
+        font-size: 3rem;
+    }
+}
+
+/* شاشات سطح المكتب */
+@media (max-width: 1440px) {
+    .games-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+    
+    .library-games {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+    
+    .runner-canvas,
+    .space-canvas,
+    .soccer-canvas,
+    .racing-canvas {
+        width: 700px;
+        height: 350px;
+    }
+}
+
+/* أجهزة اللابتوب */
+@media (max-width: 1024px) {
+    .quick-access {
+        gap: 2rem;
+        padding: 2rem;
+    }
+    
+    .quick-app {
+        min-width: 100px;
+        padding: 1rem;
+    }
+    
+    .quick-app .app-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .games-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .runner-canvas,
+    .space-canvas,
+    .soccer-canvas,
+    .racing-canvas {
+        width: 600px;
+        height: 300px;
+    }
+    
+    .fighting-canvas {
+        width: 700px;
+        height: 400px;
+    }
+}
+
+/* أجهزة اللابتوب الصغيرة والأجهزة اللوحية */
+@media (max-width: 768px) {
+    .system-bar {
+        padding: 0.8rem 1rem;
+    }
+    
+    .store-header,
+    .library-header,
+    .profile-header {
+        padding: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .store-title,
+    .library-title,
+    .profile-title {
+        font-size: 1.4rem;
+        order: 2;
+        margin-top: 1rem;
+        width: 100%;
+    }
+    
+    .store-search {
+        order: 3;
+        width: 100%;
+        margin-top: 1rem;
+    }
+    
+    .back-button {
+        order: 1;
+    }
+    
+    .quick-access {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .quick-app {
+        min-width: 80px;
+    }
+    
+    .games-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 1rem;
+    }
+    
+    .library-games {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .runner-canvas,
+    .space-canvas,
+    .soccer-canvas,
+    .racing-canvas {
+        width: 100%;
+        max-width: 500px;
+        height: 250px;
+    }
+    
+    .fighting-canvas {
+        width: 100%;
+        max-width: 600px;
+        height: 300px;
+    }
+    
+    .puzzle-board {
+        grid-template-columns: repeat(4, 60px);
+        grid-template-rows: repeat(4, 60px);
+    }
+    
+    .puzzle-tile {
+        width: 60px;
+        height: 60px;
+        font-size: 1.2rem;
+    }
+    
+    .game-details {
+        flex-direction: column;
+    }
+    
+    .modal-body {
+        padding: 1rem;
+    }
+}
+
+/* الهواتف المحمولة */
+@media (max-width: 480px) {
+    .dock-container {
+        gap: 1.5rem;
+    }
+    
+    .dock-app {
+        min-width: 60px;
+        padding: 0.5rem;
+    }
+    
+    .dock-icon {
+        font-size: 1.2rem;
+    }
+    
+    .dock-label {
+        font-size: 0.7rem;
+    }
+    
+    .store-sections {
+        padding: 1rem;
+        gap: 0.5rem;
+    }
+    
+    .store-section {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .library-filters {
+        padding: 1rem;
+        overflow-x: auto;
+    }
+    
+    .filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        white-space: nowrap;
+    }
+    
+    .profile-card {
+        flex-direction: column;
+        text-align: center;
+        margin: 1rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .game-actions {
+        flex-direction: column;
+    }
+    
+    .ps-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .runner-canvas,
+    .space-canvas,
+    .soccer-canvas,
+    .racing-canvas {
+        height: 200px;
+    }
+    
+    .fighting-canvas {
+        height: 250px;
+    }
+    
+    .puzzle-board {
+        grid-template-columns: repeat(4, 50px);
+        grid-template-rows: repeat(4, 50px);
+    }
+    
+    .puzzle-tile {
+        width: 50px;
+        height: 50px;
+        font-size: 1rem;
+    }
+}
+
+/* الهواتف المحمولة الصغيرة */
+@media (max-width: 360px) {
+    .quick-app .app-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .games-grid {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    }
+    
+    .game-card-image {
+        height: 150px;
+    }
+    
+    .runner-canvas,
+    .space-canvas,
+    .soccer-canvas,
+    .racing-canvas {
+        height: 180px;
+    }
+    
+    .puzzle-board {
+        grid-template-columns: repeat(4, 40px);
+        grid-template-rows: repeat(4, 40px);
+    }
+    
+    .puzzle-tile {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
+}
+
+/* اتجاهات مختلفة للشاشة */
+@media (orientation: landscape) and (max-height: 600px) {
+    .system-bar {
+        padding: 0.5rem 1rem;
+    }
+    
+    .quick-access {
+        padding: 1rem;
+    }
+    
+    .quick-app {
+        padding: 0.5rem;
+        min-width: 70px;
+    }
+    
+    .quick-app .app-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .section-title {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .games-carousel {
+        padding: 0.5rem;
+    }
+    
+    .games-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 1rem;
+        padding: 0.5rem;
+    }
+}
+
+/* الوضع المظلم/الفاتح */
+@media (prefers-color-scheme: light) {
+    .ps-theme {
+        --ps-gray: #f0f0f0;
+        --ps-gray-light: #e0e0e0;
+        --ps-gray-lighter: #cccccc;
+        --ps-white: #333333;
+        --gradient-dark: linear-gradient(135deg, #f5f5f5, #e5e5e5);
+    }
+    
+    .game-card {
+        background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+    }
+    
+    .store-search input {
+        background: #ffffff;
+        color: #333333;
+    }
+}
+
+/* تحسينات للأجهزة التي تدعم hover */
+@media (hover: hover) {
+    .game-card:hover .game-card-actions {
+        opacity: 1;
+    }
+    
+    .player-overlay {
+        opacity: 0;
+    }
+    
+    .game-player:hover .player-overlay {
+        opacity: 1;
+    }
+}
+
+/* تحسينات للأجهزة التي لا تدعم hover */
+@media (hover: none) {
+    .game-card-actions {
+        opacity: 1;
+    }
+    
+    .player-overlay {
+        opacity: 1;
+    }
+    
+    .quick-app:active,
+    .dock-app:active,
+    .ps-btn:active {
+        transform: scale(0.95);
+    }
+}
+
+/* دعم اللمس */
+@media (pointer: coarse) {
+    .ps-btn,
+    .back-button,
+    .player-btn,
+    .filter-btn,
+    .store-section,
+    .menu-item,
+    .overlay-btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .game-card {
+        min-height: 200px;
+    }
+    
+    input,
+    select,
+    textarea {
+        font-size: 16px; /* منع التكبير على iOS */
+    }
+}
+
+/* تحسينات للأداء */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* دعم الطباعة */
+@media print {
+    .boot-screen,
+    .system-bar,
+    .app-dock,
+    .player-header,
+    .player-overlay,
+    .modal-close,
+    .back-button {
+        display: none !important;
+    }
+    
+    .main-ui,
+    .app-screen {
+        position: static;
+        background: white;
+        color: black;
+    }
+}
