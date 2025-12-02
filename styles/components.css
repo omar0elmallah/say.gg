@@ -1,0 +1,921 @@
+/* أزرار PlayStation */
+.ps-btn {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition-medium);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.ps-btn-primary {
+    background: var(--gradient-ps);
+    color: var(--ps-white);
+    box-shadow: var(--shadow-ps);
+}
+
+.ps-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(0, 102, 204, 0.4);
+}
+
+.ps-btn-secondary {
+    background: var(--ps-gray-light);
+    color: var(--ps-white);
+    border: 2px solid var(--ps-gray-lighter);
+}
+
+.ps-btn-secondary:hover {
+    background: var(--ps-gray-lighter);
+}
+
+.ps-btn-outline {
+    background: transparent;
+    color: var(--ps-blue-light);
+    border: 2px solid var(--ps-blue-light);
+}
+
+.ps-btn-outline:hover {
+    background: var(--ps-blue-light);
+    color: var(--ps-white);
+}
+
+.ps-btn-small {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+}
+
+/* بطاقات الألعاب */
+.game-card {
+    background: var(--gradient-game);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: var(--transition-medium);
+    cursor: pointer;
+    position: relative;
+    border: 1px solid var(--ps-gray-light);
+}
+
+.game-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: var(--shadow-heavy);
+    border-color: var(--ps-blue);
+}
+
+.game-card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.game-card-content {
+    padding: 1.5rem;
+}
+
+.game-card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--ps-white);
+}
+
+.game-card-description {
+    color: var(--ps-gray-lighter);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.game-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--ps-gray-lighter);
+    font-size: 0.8rem;
+}
+
+.game-card-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: var(--ps-yellow);
+}
+
+.game-card-actions {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    opacity: 0;
+    transition: var(--transition-fast);
+}
+
+.game-card:hover .game-card-actions {
+    opacity: 1;
+}
+
+.game-card-action {
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ps-white);
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.game-card-action:hover {
+    background: var(--ps-blue);
+}
+
+/* سلة الألعاب */
+.games-carousel {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    padding: 1rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--ps-blue) var(--ps-gray);
+}
+
+.games-carousel::-webkit-scrollbar {
+    height: 8px;
+}
+
+.games-carousel::-webkit-scrollbar-track {
+    background: var(--ps-gray);
+    border-radius: 4px;
+}
+
+.games-carousel::-webkit-scrollbar-thumb {
+    background: var(--gradient-ps);
+    border-radius: 4px;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+/* شاشات التطبيقات */
+.app-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-dark);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+}
+
+/* رأس المتجر */
+.store-header, .library-header, .profile-header {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--ps-gray-light);
+    gap: 2rem;
+}
+
+.back-button {
+    width: 50px;
+    height: 50px;
+    background: var(--ps-gray-light);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ps-white);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.back-button:hover {
+    background: var(--ps-blue);
+}
+
+.store-title, .library-title, .profile-title {
+    flex: 1;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.store-search {
+    position: relative;
+    width: 300px;
+}
+
+.store-search input {
+    width: 100%;
+    padding: 0.8rem 3rem 0.8rem 1rem;
+    background: var(--ps-gray);
+    border: 2px solid var(--ps-gray-light);
+    border-radius: 50px;
+    color: var(--ps-white);
+    font-size: 1rem;
+    transition: var(--transition-fast);
+}
+
+.store-search input:focus {
+    outline: none;
+    border-color: var(--ps-blue);
+}
+
+.store-search i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--ps-gray-lighter);
+}
+
+/* أقسام المتجر */
+.store-sections {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem 2rem;
+    background: rgba(0, 0, 0, 0.5);
+    overflow-x: auto;
+}
+
+.store-section {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: var(--ps-gray);
+    border: 2px solid transparent;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    white-space: nowrap;
+}
+
+.store-section.active {
+    background: var(--ps-blue);
+    border-color: var(--ps-blue-light);
+}
+
+.store-section:hover:not(.active) {
+    background: var(--ps-gray-light);
+}
+
+/* محتوى المتجر */
+.store-content {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.featured-game {
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, rgba(0,102,204,0.2), rgba(156,39,176,0.2));
+    margin: 2rem;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.featured-game::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../../assets/images/patterns/ps-pattern.png');
+    opacity: 0.1;
+}
+
+.games-catalog {
+    padding: 2rem;
+}
+
+/* فلاتر المكتبة */
+.library-filters {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem 2rem;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.filter-btn {
+    padding: 0.6rem 1.5rem;
+    background: var(--ps-gray);
+    border: 2px solid transparent;
+    border-radius: 50px;
+    color: var(--ps-white);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.filter-btn.active {
+    background: var(--ps-blue);
+    border-color: var(--ps-blue-light);
+}
+
+.filter-btn:hover:not(.active) {
+    background: var(--ps-gray-light);
+}
+
+/* مكتبة الألعاب */
+.library-games {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.library-game-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: var(--gradient-game);
+    padding: 1.5rem;
+    border-radius: 15px;
+    transition: var(--transition-medium);
+    border: 1px solid var(--ps-gray-light);
+}
+
+.library-game-item:hover {
+    transform: translateX(-10px);
+    border-color: var(--ps-blue);
+    background: rgba(0, 102, 204, 0.1);
+}
+
+.library-game-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.library-game-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.library-game-info {
+    flex: 1;
+}
+
+.library-game-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.library-game-meta {
+    display: flex;
+    gap: 1rem;
+    color: var(--ps-gray-lighter);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.library-game-progress {
+    width: 100%;
+    height: 4px;
+    background: var(--ps-gray);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.library-game-progress-bar {
+    height: 100%;
+    background: var(--gradient-ps);
+    border-radius: 2px;
+}
+
+/* بطاقة الملف الشخصي */
+.profile-card {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    background: var(--gradient-game);
+    margin: 2rem;
+    border-radius: 20px;
+}
+
+.profile-avatar-large {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.profile-avatar-large img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--ps-blue);
+}
+
+.change-avatar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    background: var(--ps-blue);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ps-white);
+    cursor: pointer;
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.profile-info h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.profile-id {
+    color: var(--ps-gray-lighter);
+    margin-bottom: 1rem;
+}
+
+.level-progress {
+    width: 100%;
+    height: 8px;
+    background: var(--ps-gray);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.level-bar {
+    height: 100%;
+    background: var(--gradient-ps);
+    border-radius: 4px;
+}
+
+.level-text {
+    display: block;
+    text-align: left;
+    margin-top: 0.5rem;
+    color: var(--ps-blue-light);
+    font-weight: 600;
+}
+
+/* شبكة الإحصائيات */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+.stat-card {
+    background: var(--gradient-game);
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid var(--ps-gray-light);
+    transition: var(--transition-medium);
+}
+
+.stat-card:hover {
+    border-color: var(--ps-blue);
+    transform: translateY(-5px);
+}
+
+.stat-card i {
+    font-size: 2rem;
+    color: var(--ps-blue-light);
+    margin-bottom: 1rem;
+}
+
+.stat-card h3 {
+    font-size: 1rem;
+    color: var(--ps-gray-lighter);
+    margin-bottom: 0.5rem;
+}
+
+.stat-card p {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--ps-white);
+}
+
+/* قائمة الإعدادات */
+.settings-section {
+    padding: 2rem;
+}
+
+.settings-list {
+    background: var(--gradient-game);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+}
+
+.setting-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid var(--ps-gray-light);
+}
+
+.setting-item:last-child {
+    border-bottom: none;
+}
+
+.setting-item i {
+    color: var(--ps-blue-light);
+    width: 30px;
+}
+
+.setting-item span {
+    flex: 1;
+}
+
+.setting-item select,
+.setting-item input[type="range"] {
+    background: var(--ps-gray);
+    border: 2px solid var(--ps-gray-light);
+    border-radius: 10px;
+    color: var(--ps-white);
+    padding: 0.5rem 1rem;
+    min-width: 150px;
+}
+
+.logout-btn {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 51, 51, 0.1);
+    border: 2px solid var(--ps-red);
+    border-radius: 10px;
+    color: var(--ps-red);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    transition: var(--transition-fast);
+}
+
+.logout-btn:hover {
+    background: var(--ps-red);
+    color: var(--ps-white);
+}
+
+/* مشغل الألعاب */
+.game-player {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--ps-black);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+.player-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--ps-gray-light);
+}
+
+.game-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.game-info img {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+}
+
+.player-controls {
+    display: flex;
+    gap: 1rem;
+}
+
+.player-btn {
+    width: 50px;
+    height: 50px;
+    background: var(--ps-gray);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ps-white);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.player-btn:hover {
+    background: var(--ps-blue);
+}
+
+.btn-close:hover {
+    background: var(--ps-red);
+}
+
+.player-content {
+    flex: 1;
+    position: relative;
+}
+
+#game-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.player-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    opacity: 0;
+    transition: var(--transition-medium);
+}
+
+.game-player:hover .player-overlay {
+    opacity: 1;
+}
+
+.overlay-controls {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.overlay-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid var(--ps-gray-light);
+    border-radius: 15px;
+    padding: 1rem;
+    color: var(--ps-white);
+    cursor: pointer;
+    min-width: 100px;
+    transition: var(--transition-fast);
+}
+
+.overlay-btn:hover {
+    border-color: var(--ps-blue);
+    background: rgba(0, 102, 204, 0.3);
+}
+
+/* النافذة المنبثقة */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.ps-modal {
+    background: var(--gradient-dark);
+    border-radius: 20px;
+    width: 90%;
+    max-width: 1000px;
+    max-height: 90vh;
+    overflow: hidden;
+    border: 1px solid var(--ps-gray-light);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid var(--ps-gray-light);
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: var(--ps-white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: var(--transition-fast);
+}
+
+.modal-close:hover {
+    background: var(--ps-red);
+}
+
+.modal-body {
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.game-details {
+    display: flex;
+    gap: 3rem;
+}
+
+.game-preview {
+    flex: 1;
+}
+
+.game-preview img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+}
+
+.game-trailer {
+    text-align: center;
+}
+
+.trailer-btn {
+    padding: 1rem 2rem;
+    background: var(--gradient-ps);
+    border: none;
+    border-radius: 50px;
+    color: var(--ps-white);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+}
+
+.game-info {
+    flex: 1;
+}
+
+.game-rating {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.stars {
+    color: var(--ps-yellow);
+}
+
+.game-description {
+    color: var(--ps-gray-lighter);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.game-meta {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    color: var(--ps-gray-lighter);
+}
+
+.game-meta i {
+    color: var(--ps-blue-light);
+    margin-left: 0.5rem;
+}
+
+.game-requirements h4 {
+    margin-bottom: 1rem;
+    color: var(--ps-white);
+}
+
+.game-requirements ul {
+    list-style: none;
+    padding-right: 1rem;
+}
+
+.game-requirements li {
+    padding: 0.5rem 0;
+    color: var(--ps-gray-lighter);
+    position: relative;
+}
+
+.game-requirements li::before {
+    content: '•';
+    color: var(--ps-blue-light);
+    position: absolute;
+    right: -1rem;
+}
+
+.game-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* القائمة الجانبية */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100%;
+    background: var(--gradient-dark);
+    border-left: 1px solid var(--ps-gray-light);
+    z-index: 1500;
+    transform: translateX(100%);
+    transition: var(--transition-medium);
+}
+
+.side-menu.open {
+    transform: translateX(0);
+}
+
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--ps-gray-light);
+}
+
+.menu-items {
+    padding: 1rem 0;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    color: var(--ps-white);
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.menu-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.menu-item i {
+    width: 30px;
+    color: var(--ps-blue-light);
+}
+
+.menu-item span {
+    flex: 1;
+}
+
+.badge {
+    background: var(--ps-red);
+    color: var(--ps-white);
+    padding: 0.2rem 0.6rem;
+    border-radius: 10px;
+    font-size: 0.8rem;
+}
+
+.menu-footer {
+    padding: 1.5rem;
+    border-top: 1px solid var(--ps-gray-light);
+}
